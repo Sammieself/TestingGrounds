@@ -2,6 +2,7 @@ Binaries
 DerivedDataCache
 Intermediate
 Saved
+Substance
 .vscode
 *.opensdf
 *.opendb
@@ -71,3 +72,6 @@ Plugins/*/Intermediate/*
 DerivedDataCache/*
 # Ryu
 Content/StarterContent/*
+CMakeLists.txt
+cmake*
+.idea/*
