@@ -31,8 +31,6 @@ public:
 	ABallGun();
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
-	/** Fires a projectile. */
-	void OnFire();
 	/** Projectile class to spawn */
 	UPROPERTY(EditDefaultsOnly, Category = Projectile)
 		TSubclassOf<class ABallProjectile> ProjectileClass;
@@ -48,6 +46,9 @@ public:
 	/** Whether to use motion controller location for aiming. */
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Gameplay)
 		uint32 bUsingMotionControllers : 1;
+	/** Fires a projectile. */
+	UFUNCTION(BlueprintCallable, Category = "Input")
+		void OnFire();
 
 protected:
 	virtual void BeginPlay() override;
