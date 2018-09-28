@@ -1,6 +1,5 @@
 // Ryu
 #include "InfiniteTerrainGameMode.h"
-#include "GameFramework/Volume.h" //??
 #include "NavMesh/NavMeshBoundsVolume.h"
 #include "EngineUtils.h"
 #include "ActorPool.h"
@@ -17,11 +16,6 @@ void AInfiniteTerrainGameMode::PopulateBoundsVolumePool() {
 	}
 }
 
-
 void AInfiniteTerrainGameMode::AddToPool(ANavMeshBoundsVolume *VolumeToAdd) {
 	NavMeshBoundsVolumePool->Add(VolumeToAdd);
-
-	//auto VolumeName = VolumeToAdd->GetName();
-	//if (VolumeName.Contains(FString("NavMesh"), ESearchCase::CaseSensitive, ESearchDir::FromStart))
-	//	UE_LOG(LogTemp, Warning, TEXT("Found NavMesh: %s"), *VolumeToAdd->GetName());
 }

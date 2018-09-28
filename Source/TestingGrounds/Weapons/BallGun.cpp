@@ -78,7 +78,7 @@ void ABallGun::Tick(float DeltaTime) {
 void ABallGun::OnFire() {
 	// try and fire a projectile
 	if (ProjectileClass != NULL) {
-		UE_LOG(LogTemp, Warning, TEXT("sdfg"));
+		UE_LOG(LogTemp, Warning, TEXT("OnFire!!"));
 		UWorld* const World = GetWorld();
 		if (World != NULL) {
 			if (bUsingMotionControllers) {

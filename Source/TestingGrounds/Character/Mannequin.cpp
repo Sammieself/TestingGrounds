@@ -1,7 +1,8 @@
 // Ryu
 #include "Mannequin.h"
-#include "TestingGrounds.h"
+#include "Weapons/BallGun.h"
 #include "Components/CapsuleComponent.h"
+#include "Camera/CameraComponent.h"
 #include "Engine/SkeletalMesh.h"
 
 // Sets default values
@@ -40,7 +41,7 @@ void AMannequin::BeginPlay() {
 		Gun->AttachToComponent(Mesh1P, FAttachmentTransformRules(EAttachmentRule::SnapToTarget, true), TEXT("GripPoint"));
 	}
 	else {
-		Gun->AttachToComponent(GetMesh(), FAttachmentTransformRules(EAttachmentRule::SnapToTarget, true), TEXT("GripPoint_0"));
+		Gun->AttachToComponent(GetMesh(), FAttachmentTransformRules(EAttachmentRule::SnapToTarget, true), TEXT("GripPoint"));
 	}
 
 	Gun->AnimInstance = Mesh1P->GetAnimInstance();
@@ -63,21 +64,12 @@ void AMannequin::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent
 
 void AMannequin::UnPossessed() {
 	Super::UnPossessed();
-	if (BallGunBlueprint == nullptr) {
-		UE_LOG(LogTemp, Warning, TEXT("Gun blueprint is missing. UnPossesed"));
-		return;
-	}
 
 	auto Gun = GetWorld()->SpawnActor<ABallGun>(BallGunBlueprint);
-	Gun->AttachToComponent(GetMesh(), FAttachmentTransformRules(EAttachmentRule::SnapToTarget, true), TEXT("GripPoint_0"));
+	Gun->AttachToComponent(GetMesh(), FAttachmentTransformRules(EAttachmentRule::SnapToTarget, true), TEXT("GripPoint"));
 }
 
 void AMannequin::PullTrigger() {
-	if (BallGunBlueprint == nullptr) {
-		UE_LOG(LogTemp, Warning, TEXT("Gun blueprint is missing. PullTrigger"));
-		return;
-	}
-
 	auto Gun = GetWorld()->SpawnActor<ABallGun>(BallGunBlueprint);
 	Gun->OnFire();
 }
