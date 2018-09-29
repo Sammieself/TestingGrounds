@@ -33,9 +33,7 @@ public:
 		);
 
 	UFUNCTION(BlueprintCallable, Category = "Spawning")
-		void PlaceAIPawns(TSubclassOf<APawn> ToSpawn,
-			int MinSpawn = 1, int MaxSpawn = 1,
-			float Radius = 500);
+		void PlaceAIPawns(TSubclassOf<APawn> ToSpawn, int MinSpawn = 1, int MaxSpawn = 1, float Radius = 500);
 
 protected:
 	// Called when the game starts or when spawned
