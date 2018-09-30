@@ -53,7 +53,7 @@ void AFirstPersonCharacter::BeginPlay() {
 	BallGun = GetWorld()->SpawnActor<ABallGun>(BallGunBlueprint);
 	//Attach gun mesh component to Skeleton, doing it here because the skeleton is not yet created in the constructor
 	BallGun->AttachToComponent(Mesh1P, FAttachmentTransformRules(EAttachmentRule::SnapToTarget, true), TEXT("GripPoint"));
-	BallGun->AnimInstance = Mesh1P->GetAnimInstance();
+	BallGun->AnimInstance1P = Mesh1P->GetAnimInstance();
 	// Bind fire event
 	if (EnableTouchscreenMovement(InputComponent) == false) {
 		InputComponent->BindAction("Fire", IE_Pressed, BallGun, &ABallGun::OnFire);

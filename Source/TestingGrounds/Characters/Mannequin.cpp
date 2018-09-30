@@ -1,6 +1,6 @@
 // Ryu
 #include "Mannequin.h"
-#include "Weapons/BallGun.h"
+#include "../Weapons/BallGun.h"
 #include "Components/CapsuleComponent.h"
 #include "Camera/CameraComponent.h"
 #include "Engine/SkeletalMesh.h"
@@ -44,8 +44,8 @@ void AMannequin::BeginPlay() {
 		Gun->AttachToComponent(GetMesh(), FAttachmentTransformRules(EAttachmentRule::SnapToTarget, true), TEXT("GripPoint"));
 	}
 
-	Gun->AnimInstance = Mesh1P->GetAnimInstance();
-	Gun->AnimInstance = GetMesh()->GetAnimInstance();
+	Gun->AnimInstance1P = Mesh1P->GetAnimInstance();
+	Gun->AnimInstance3P = GetMesh()->GetAnimInstance();
 
 	if (InputComponent != nullptr) {
 		InputComponent->BindAction("Fire", IE_Pressed, this, &AMannequin::PullTrigger);

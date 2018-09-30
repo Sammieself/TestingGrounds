@@ -31,6 +31,9 @@ public:
 	ABallGun();
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
+	/** Gun muzzle's offset from the characters location */
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Gameplay)
+		FVector GunOffset;
 	/** Projectile class to spawn */
 	UPROPERTY(EditDefaultsOnly, Category = Projectile)
 		TSubclassOf<class ABallProjectile> ProjectileClass;
@@ -39,10 +42,13 @@ public:
 		class USoundBase* FireSound;
 	/** AnimMontage to play each time we fire */
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Gameplay)
-		class UAnimMontage* FireAnimation;
-	/** Anim instance*/
+		class UAnimMontage* FireAnimation1P;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Gameplay)
-		UAnimInstance* AnimInstance;
+		class UAnimMontage* FireAnimation3P;
+	UPROPERTY()
+		class UAnimInstance* AnimInstance1P;
+	UPROPERTY()
+		class UAnimInstance* AnimInstance3P;
 	/** Whether to use motion controller location for aiming. */
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Gameplay)
 		uint32 bUsingMotionControllers : 1;

@@ -71,16 +71,12 @@ void ATile::BeginPlay() { Super::BeginPlay(); }
 
 void ATile::EndPlay(const EEndPlayReason::Type EndPlayReason) {
 	/*UE_LOG(LogTemp, Warning, TEXT("[%s] EndPlay"), *GetName())*/
-	if (Pool != nullptr && NavMeshBoundsVolume != nullptr) {
-		Pool->Return(NavMeshBoundsVolume);
-	}
+	if (Pool != nullptr && NavMeshBoundsVolume != nullptr) { Pool->Return(NavMeshBoundsVolume);	}
 }
 
 // Called every frame
-void ATile::Tick(float DeltaTime) {
-	Super::Tick(DeltaTime);
-}
-
+void ATile::Tick(float DeltaTime) {	Super::Tick(DeltaTime); }
+ 
 void ATile::SetPool(UActorPool * InPool) {
 	UE_LOG(LogTemp, Warning, TEXT("[%s] setting %s"), *(this->GetName()), *(InPool->GetName()));
 	Pool = InPool;
