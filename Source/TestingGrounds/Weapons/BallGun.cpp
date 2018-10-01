@@ -4,6 +4,7 @@
 #include "MotionControllerComponent.h"
 #include "Kismet/GameplayStatics.h"
 #include "Animation/AnimInstance.h"
+#include "Engine.h"
 
 // Sets default values
 ABallGun::ABallGun() {
@@ -82,7 +83,7 @@ void ABallGun::OnFire() {
 	}
 
 	// try and play a firing animation if specified
-	if (FireAnimation1P != nullptr && AnimInstance1P != nullptr) {
+	if (FireAnimation1P != NULL && AnimInstance1P != NULL) {
 		AnimInstance1P->Montage_Play(FireAnimation1P, 1.f);
 		UE_LOG(LogTemp, Warning, TEXT("FireAnimation1P"));
 	}
