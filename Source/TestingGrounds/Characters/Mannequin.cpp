@@ -60,8 +60,7 @@ void AMannequin::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent
 
 void AMannequin::UnPossessed() {
 	Super::UnPossessed();
-	// TODO
-	// BallGun->AttachToComponent(GetMesh(), FAttachmentTransformRules(EAttachmentRule::SnapToTarget, true), TEXT("TPGripPoint"));
+	BallGun->AttachToComponent(GetMesh(), FAttachmentTransformRules(EAttachmentRule::SnapToTarget, true), TEXT("TPGripPoint"));
 }
 
 void AMannequin::PullTrigger() {
@@ -69,4 +68,3 @@ void AMannequin::PullTrigger() {
 		BallGun->OnFire();
 	}
 }
-
