@@ -86,7 +86,7 @@ void ABallGun::OnFire() {
 	if (FireAnimation1P != NULL && AnimInstance1P != NULL) {
 		AnimInstance1P->Montage_Play(FireAnimation1P, 1.f);
 	}
-	if (FireAnimation3P != nullptr && AnimInstance3P != nullptr){
+	if (FireAnimation3P != NULL && AnimInstance3P != NULL){
 		AnimInstance3P->Montage_Play(FireAnimation3P, 1.f);
 		UE_LOG(LogTemp, Warning, TEXT("FireAnimation3P"));
 	}
